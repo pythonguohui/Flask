@@ -1,0 +1,34 @@
+{% extends "blank.html" %}
+
+{% block title %}
+    添加教师
+{% endblock %}
+
+{% block container %}
+    <form method="post">
+    {{ teacher_from.csrf_token }}
+        <div>
+            <label>{{ teacher_from.name.label }}</label>
+            {{ teacher_from.name }}
+        </div>
+        <br>
+     <div>
+            {{ teacher_from.age }}
+        </div>
+             <br>
+     <div>
+            {{ teacher_from.gender }}
+        </div>
+             <br>
+     <div>
+            {{ teacher_from.course }}
+        </div>
+             <br>
+    <div>
+        <input type="submit" value="提交" class="btn btn-primary btn-block">
+    </div>
+
+    </form>
+{% endblock %}
+
+

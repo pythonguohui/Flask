@@ -1,0 +1,58 @@
+{% extends "blank.html"%}
+
+
+{% block title %}
+{% endblock %}
+
+{% block container %}
+    {% if request.cookies.identity_id %}
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-12">
+   <div class="card mb-4">
+        <div class="card-header" style="text-align: center">
+          欢迎{{ teachers.name }}登录系统
+        </div>
+        <div class="card-body" >
+           <p>教师姓名：{{ teachers.name }}</p>
+            <p>教师年龄：{{ teachers.age }}</p>
+            <p>教师性别：{{ teachers.gender }}</p>
+        </div>
+         </div>
+         </div>
+      </div>
+      </div>
+    {% else %}
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-12">
+   <div class="card mb-4">
+        <div class="card-header" style="text-align: center">
+          请完善你的个人信息
+        </div>
+       <form action="" method="post">
+           <div class="card-body" >
+            <input type="hidden" class="form-control" name="csrf_token" value="{{ csrf_token() }}">
+        </div>
+        <div class="card-body" >
+            <input type="text" class="form-control" name="username" placeholder="教师姓名">
+        </div>
+         <div class="card-body">
+            <input type="text" class="form-control" name="age" placeholder="教师年龄">
+        </div>
+        <div class="card-body">
+            <input type="text" class="form-control" name="gender" placeholder="教师性别">
+        </div>
+        <div class="card-body">
+            <input type="text" class="form-control"  name="course" placeholder="教师课程">
+        </div>
+         <div class="card-body">
+            <input type="submit"  class="btn btn-primary" style="float: right" value="提交信息">
+        </div>
+       </form>
+         </div>
+         </div>
+      </div>
+      </div>
+    {% endif %}
+{% endblock %}
